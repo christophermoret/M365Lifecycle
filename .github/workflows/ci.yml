@@ -1,0 +1,13 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint and test
+        shell: pwsh
+        run: |
+          Install-Module PSScriptAnalyzer, Pester -Force -SkipPublisherCheck -Scope CurrentUser
+          Invoke-ScriptAnalyzer -Path ./src -Recurse -EnableExit
+          Invoke-Pester -Path ./tests -CI

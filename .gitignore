@@ -1,0 +1,19 @@
+# Secrets and auth
+*.pfx
+*.cer
+*.key
+config.json
+*.secret.*
+
+# Output and logs
+logs/
+output/
+*.log
+reports/*.html
+
+# Real data (only examples/ is allowed)
+*.csv
+!examples/*.csv
+
+# Editor
+.vscode/
