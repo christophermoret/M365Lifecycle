@@ -1,13 +1,26 @@
 name: CI
+
 on: [push, pull_request]
+
+# The automatic GITHUB_TOKEN only needs to read the code for lint and tests
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Lint and test
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Install PSScriptAnalyzer and Pester
         shell: pwsh
-        run: |
-          Install-Module PSScriptAnalyzer, Pester -Force -SkipPublisherCheck -Scope CurrentUser
-          Invoke-ScriptAnalyzer -Path ./src -Recurse -EnableExit
-          Invoke-Pester -Path ./tests -CI
+        run: Install-Module PSScriptAnalyzer, Pester -Force -SkipPublisherCheck -Scope CurrentUser
+
+      - name: Lint with PSScriptAnalyzer
+        shell: pwsh
+        run: Invoke-ScriptAnalyzer -Path ./src -Recurse -Severity Warning, Error -EnableExit
+
+      - name: Run Pester tests
+        shell: pwsh
+        run: Invoke-Pester -Path ./tests -CI
