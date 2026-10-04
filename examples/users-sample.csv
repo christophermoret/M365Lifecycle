@@ -1,4 +1,4 @@
 GivenName,Surname,UserPrincipalName,Department,JobTitle,UsageLocation,LicenseSku,Groups
-Anna,Keller,anna.keller@homelab333.onmicrosoft.com,Sales,Account Manager,CH,SPB,Sales;All Staff
-Marc,Dubois,marc.dubois@homelab333.onmicrosoft.com,Finance,Accountant,CH,SPB,All Staff
-Lea,Rossi,lea.rossi@homelab333.onmicrosoft.com,IT,Support Technician,CH,,IT;All Staff
+Anna,Keller,anna.keller@YOURTENANT.onmicrosoft.com,Sales,Account Manager,CH,SPB,Sales;All Staff
+Marc,Dubois,marc.dubois@YOURTENANT.onmicrosoft.com,Finance,Accountant,CH,SPB,All Staff
+Lea,Rossi,lea.rossi@YOURTENANT.onmicrosoft.com,IT,Support Technician,CH,,IT;All Staff
